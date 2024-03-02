@@ -1,0 +1,295 @@
+SPI NOR
+ddr init
+
+U-Boot 2013.04 (Jan 15 2020 - 16:00:45)
+
+CPU  : ZX279125@A9,600MHZ
+Board: ZXIC zx279125evb
+I2C:   ready
+DRAM:  32 MiB
+SF: Got idcode ef 40 17 00 17
+SF: Detected w25Q64 with page size 64, total 8 MiB
+In:    serial
+Out:   serial
+Err:   serial
+Net:   eth0
+
+Hit 1 to upgrade softwate version
+Hit any key to stop autoboot:  3  2  1  0 
+do_mcupg function enter..
+Using eth0 device
+multi upgrade check timeout.
+Receive multicast packet failed (>.<)
+select=0x1
+search=0x2
+BootImageNum=0x00000001,1
+select = 0x1
+read spi flash offset=0x3e0000, size=0x12e850,please waiting...down.
+offset=510000, fs_size=24d000
+## Booting kernel from Legacy Image at 40600140 ...
+   Image Name:   Linux Kernel Image
+   Image Type:   ARM Linux Kernel Image (lzma compressed)
+   Data Size:    1238723 Bytes = 1.2 MiB
+   Load Address: 40008000
+   Entry Point:  40008000
+   Verifying Checksum ... OK
+   Uncompressing Kernel Image ... OK
+----------------------
+|-->setup versioninfo tag...
+
+Starting kernel ...
+
+[0;33m<devices> device resource added[0m
+modename:watchdog	addr:41ff4000	size:0000c000
+dwAddress is 41ff4000	 dwLen is 49152
+g_pdwWdRsvMemBase is c2810000	 g_dwWdRsvMemLen is 40052
+magic is the same as last time
+g_pdwWdRegTableBase = c2810fb0
+: success register character device for /dev/watchdog
+zxwdt: heartbeat 2 msec, clock 600000000
+dev:uart0: ttyS0 at MMIO 0xf0705000 (irq = 43) is a ZTE UART
+zx_uart_console_setup:UART: uart1 set for console!
+console [ttyS0] enabled
+dev:uart1: ttyS1 at MMIO 0xf0706000 (irq = 42) is a ZTE UART
+bio: create slab <bio-0> at 0
+Switching to clocksource timer1_clksrc
+NET: Registered protocol family 2
+IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+TCP established hash table entries: 1024 (order: 1, 8192 bytes)
+TCP bind hash table entries: 1024 (order: 0, 4096 bytes)
+TCP: Hash tables configured (established 1024 bind 1024)
+TCP: reno registered
+UDP hash table entries: 256 (order: 0, 4096 bytes)
+UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+NET: Registered protocol family 1
+I2C(info): zx_i2c at 0xf0802000 registered.
+pon init
+pon clk reset pin mux
+pp init
+pp net init ok,232/184
+switch init
+create pon_dying_gasp_task ok!
+squashfs: version 4.0 (2009/01/31) Phillip Lougher
+squashfs: version 4.0 with LZMA457 ported by BRCM
+JFFS2 version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+msgmni has been set to 34
+io scheduler noop registered
+io scheduler cfq registered (default)
+loop: module loaded
+i2c /dev entries driver
+nf_conntrack version 0.5.0 (275 buckets, 1100 max)
+ip_tables: (C) 2000-2006 Netfilter Core Team
+NET: Registered protocol family 10
+ip6_tables: (C) 2000-2006 Netfilter Core Team
+IPv6 over IPv4 tunneling driver
+NET: Registered protocol family 17
+Bridge firewalling registered
+Ebtables v2.0 registered
+PPP generic driver version 2.4.2
+NET: Registered protocol family 24
+zxic--oss cpu usage module init
+<LOGID000000005>11930:27:43 [KIGMPSNP][Warn] [br_multicast_se(184)br_del_addr_reg] register gIgmpDelAddrHook succeed!
+<LOGID000000005>11930:27:43 [KIGMPSNP][Warn] [br_multicast_se(190)br_del_addr_reg] register gMldDelAddrHook succeed!
+mtd.name = ZX9125spifc.0, .size = 0x800000 (8MiB) .erasesize = 0x00010000 (64KiB) .numeraseregions = 0
+Creating 9 MTD partitions on "ZX9125spifc.0":
+0x000000000000-0x000000800000 : "whole flash"
+0x000000000000-0x000000040000 : "uboot"
+0x000000040000-0x000000170000 : "kernel0"
+0x0000003e0000-0x000000510000 : "kernel1"
+0x000000780000-0x000000790000 : "others"
+0x000000790000-0x0000007a0000 : "parameter tags"
+0x0000007a0000-0x000000800000 : "usercfg"
+0x000000170000-0x0000003e0000 : "rootfs0"
+0x000000510000-0x000000780000 : "rootfs1"
+fastforward_init start !
+fastforward_init done !
+mount_block_root name = /dev/root 
+do_mount_root ,fs = squashfs
+VFS: Mounted root (squashfs filesystem) readonly on device 31:8.
+Freeing init memory: 100K
+CFS CPU scheduler.
+zx_uart_startup:UART: uart1 is set for console!
+
+init started:  BusyBox v1.01 (2020.08.31-00:40+0000) multi-call binary
+
+Starting pid 21, console /dev/ttyS0: '/etc/init.d/rcS'
+Pre-initialization script ...
+  Mounting ramdisk at /var
+  Mounting /dev/mtdblock6 to /userconfig
+jffs2_scan_dirent_node(): Name CRC failed on node at 0x000015d0: Read 0x202b7582, calculated 0xc77d3e6d
+jffs2_scan_dirent_node(): Node CRC failed on node at 0x000416f4: Read 0xffffffff, calculated 0x2322e93d
+Empty flash at 0x00041730 ends at 0x00041800
+Empty flash at 0x00046854 ends at 0x00046900
+Empty flash at 0x0004ba64 ends at 0x0004bb00
+  Mount ok!
+Bringing up interface lo
+Bringing up interface mii0
+
+11930:27:46 [U_busybox][Warn] [ifconfig.c(996)ifconfig] Ioctl failed!SIOCGIFFLAGS
+Set promisc for device mii0
+
+11930:27:46 [U_busybox][Warn] [ifconfig.c(996)ifconfig] Ioctl failed!SIOCGIFFLAGS
+ Configuring with no IP address (i.e. for PPP)
+
+11930:27:46 [U_busybox][Warn] [ifconfig.c(996)ifconfig] Ioctl failed!SIOCGIFFLAGS
+Using /kmodule/bspdriver.ko
+<verinfo_module_init>(661)---->verinfo=U-Boot V6.0.4P1T8 20200115160709 0x3e0000 0x1 0x82 0x8f
+<verinfo_module_init>(666)----><verinfo_module_init>(668)----><verinfo_module_init>(670)---->TW1251G-C3AL     found.
+Using /kmodule/zx_ponreg.ko
+register fpga driver success, major=222
+Using /kmodule/tagparam_mod.ko
+Using /kmodule/tm.ko
+= TM Module SYS FS Init ended successfully =
+tm_initModule begin...
+tm_initial successed !!!
+tm_initModule end...
+Using /kmodule/netdriver.ko
+ethdriver_init....
+g_mii_dev_name[0]  sw 
+g_mii_dev_name[1]  pon 
+Using /kmodule/switch.ko
+Init switch module
+zy switch detected boardtype:2
+zy uni num:1
+switch config 9100 EPON SFU mode!
+[TM][tm_port_cvrt_protocol_pktdeal_set] error protocol type 11
+[TM][tm_port_cvrt_protocol_pktdeal_set] error protocol type 11
+[TM][tm_port_protocol_pktdeal_set] failed
+[TM][tm_port_cvrt_protocol_pktdeal_set] error protocol type 17
+[TM][tm_port_cvrt_protocol_pktdeal_set] error protocol type 17
+[TM][tm_port_protocol_pktdeal_set] failed
+[TM][tm_pon_cvrt_protocol_pktdeal_set] error protocol type 17
+[TM][dpa_set_protocol_type_i_act] failed
+[TM][tm_port_cvrt_protocol_pktdeal_set] error protocol type 21
+[TM][tm_port_cvrt_protocol_pktdeal_set] error protocol type 21
+[TM][tm_port_protocol_pktdeal_set] failed
+[TM][tm_pon_cvrt_protocol_pktdeal_set] error protocol type 21
+[TM][dpa_set_protocol_type_i_act] failed
+[TM][tm_port_cvrt_protocol_pktdeal_set] error protocol type 28
+[TM][tm_port_cvrt_protocol_pktdeal_set] error protocol type 28
+[TM][tm_port_protocol_pktdeal_set] failed
+[TM][tm_pon_cvrt_protocol_pktdeal_set] error protocol type 28
+[TM][dpa_set_protocol_type_i_act] failed
+si_zx_api_pp_set_pro_action  fails!!!!
+[SW][sw_init_switch] alarm init
+[yqs]set cpu queue rate limit to 800pps
+Init switch module Success
+Using /kmodule/eponmac.ko
+EPONMAC init success!!!
+create eponmac_task_thread ok!
+create eponmac_pondnup_task ok!
+Using /kmodule/epondrv.ko
+zx279100_epon_Init begin
+zx279100_epon_Init ok
+<LOGID000000005>11930:27:48 [KMONITOR][Warn] [monitor.c(562)MontorSendMsg] netlink_unicast failed:msgid = 0xa510, ptr = (null), len = 0
+Using /kmodule/optical.ko
+TW1251G-C3AL     found.
+bsp_i2c_probe 0x50 success!
+Open bob_dev failure!
+write_all_datas_to_GN25L95 finish!!!
+===================================================================
+region code:0
+region name:
+===================================================================
+  Database default setting is [current : 0]
+
+Starting pid 160, console /dev/ttyS0: '/sbin/getty'
+
+Please press Enter to activate this console. 
+D301
+Login: 
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2128)dbTblXMLFileChk] load database failed dbTblXMLFileChkLoad entry eOpType=1
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2532)_dbXMLDmDefLoad] dbXMLCreateTblLoad tblname(MLDSNPEnable) bTblMacroOn is false.
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2532)_dbXMLDmDefLoad] dbXMLCreateTblLoad tblname(IfMLDMtoU) bTblMacroOn is false.
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2532)_dbXMLDmDefLoad] dbXMLCreateTblLoad tblname(IfMLDQrySend) bTblMacroOn is false.
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2532)_dbXMLDmDefLoad] dbXMLCreateTblLoad tblname(IfMLDSendWan) bTblMacroOn is false.
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2532)_dbXMLDmDefLoad] dbXMLCreateTblLoad tblname(UnregisMLDMode) bTblMacroOn is false.
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2532)_dbXMLDmDefLoad] dbXMLCreateTblLoad tblname(GrpMLDTimeout) bTblMacroOn is false.
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2532)_dbXMLDmDefLoad] dbXMLCreateTblLoad tblname(MLDLeaveMode) bTblMacroOn is false.
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2532)_dbXMLDmDefLoad] dbXMLCreateTblLoad tblname(MLDTblSize) bTblMacroOn is false.
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2532)_dbXMLDmDefLoad] dbXMLCreateTblLoad tblname(AutoIpEnable) bTblMacroOn is false.
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2532)_dbXMLDmDefLoad] dbXMLCreateTblLoad tblname(allowedMACAddresses) bTblMacroOn is false.
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2532)_dbXMLDmDefLoad] dbXMLCreateTblLoad tblname(ArpStolenEnable) bTblMacroOn is false.
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2392)_dbXMLCreateTbl] dbXMLCreateTblLoad tblname(WDInfo) bTblMacroOn is false.
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2392)_dbXMLCreateTbl] dbXMLCreateTblLoad tblname(TUNNEL46CFG) bTblMacroOn is false.
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2392)_dbXMLCreateTbl] dbXMLCreateTblLoad tblname(TUNNEL64CFG) bTblMacroOn is false.
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2392)_dbXMLCreateTbl] dbXMLCreateTblLoad tblname(PPPJumboCfg) bTblMacroOn is false.
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2392)_dbXMLCreateTbl] dbXMLCreateTblLoad tblname(McTunnel46) bTblMacroOn is false.
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2392)_dbXMLCreateTbl] dbXMLCreateTblLoad tblname(PortBinding) bTblMacroOn is false.
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2532)_dbXMLDmDefLoad] dbXMLCreateTblLoad tblname(IsAutoShowWizard) bTblMacroOn is false.
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2392)_dbXMLCreateTbl] dbXMLCreateTblLoad tblname(EthAcl) bTblMacroOn is false.
+11930:27:51 [DB][Warn] [dbc_mgr_file_xm(2392)_dbXMLCreateTbl] dbXMLCreateTblLoad tblname(MgtServer) bTblMacroOn is false.
+11930:27:52 [DB][Warn] [dbc_mgr_file_xm(2392)_dbXMLCreateTbl] dbXMLCreateTblLoad tblname(DHCPSBind) bTblMacroOn is false.
+11930:27:52 [DB][Warn] [dbc_mgr_file_xm(2392)_dbXMLCreateTbl] dbXMLCreateTblLoad tblname(ParamAttr) bTblMacroOn is false.
+11930:27:52 [DB][Warn] [dbc_mgr_file_xm(2128)dbTblXMLFileChk] load database failed dbTblXMLFileChkLoad entry eOpType=2
+vid not found.
+11930:27:52 [DB][Error] [dbc_view_board_(708)dbDefBoardInfo] GetBoardTypeFlag failed!
+11930:27:52 [DB][Warn] [dbc_person_dev_(35)dbPersonInitOUI] get parameter from Flash failed!ManuFacturerOui
+11930:27:52 [DB][Warn] [dbc_person_dev_(98)dbPersonInitHVT] get parameter from Flash failed!HardwareVerTag
+11930:27:52 [DB][Warn] [dbc_person_auth(30)dbPersonInitAut] get parameter from Flash failed!Username
+11930:27:52 [DB][Warn] [dbc_person_auth(62)dbPersonInitAut] get parameter from Flash failed!Password
+11930:27:52 [DB][Warn] [dbc_person_dev_(255)dbGetOnuMode] boardType : D301
+11930:27:52 [DB][Warn] [dbc_person_dev_(273)dbGetOnuMode] getOnuMode failed, use default mode
+11930:27:52 [DB][Warn] [dbc_person_dev_(341)dbPersonInitVer] get parameter from Flash failed!VersionMode
+00:00:03 [OSS_cspd][Warn] [oss_sche.c(827)RunProcess] RunProcess process[firewall] Event[0x1100] dwUsedTicks[324]
+EponSetPonMac get db mac is c4-70- b-30-44-98
+
+[eponSetMacEntry] parameter in:
+OpType:0 mac:C4:70:0B:30:44:98
+00:00:03 [dss][Warn] [dss_lla.c(810)DssLlaMain] The Dss' lpMsg is null.
+00:00:03 [dhcp6s][Warn] [dhcp6s_main.c(1501)getHwMacByIfNam] Ioctl failed!
+00:00:03 [dhcp6s][Warn] [dhcp6s_main.c(1665)startDhcp6sInst] invalid interface 
+########br's FDB_MAX[256]
+ADDRCONF(NETDEV_UP): br0: link is not ready
+ethdrv_dev_ioctl  ,brdev_set.port_id 0 ,brdev_set.name eth0 ,brdev_set.flag 0 
+sip alg change port ok!
+
+ftp alg change port ok!
+
+rtsp alg change port ok!
+
+
+00:00:07 [dns_mgr][Warn] [ifs_api.c(2585)GetRouteIFInfo] parameter is illegal![IGD.WD1.WCD1.WCPPP1]
+recv EV_NORMAL_START
+00:00:07 [dss][Warn] [dss_lla.c(810)DssLlaMain] The Dss' lpMsg is null.
+00:00:07 [prefix_mgr][Error] [prefix_mgr.c(1952)PrefixMgrInit] Init Prefix Lock error!
+[sw_port_set_port_floodcontrol] not support now!
+[sw_port_set_port_floodcontrol] not support now!
+si_api_sw_port_set_port_multicastrate port:(1) direct:(0) enable:(0) rate:(1024000 kpbs) ifgMode:(1)
+si_api_sw_port_set_port_broadcastrate port:(1) direct:(0) enable:(0) rate:(1024000 kpbs) ifgMode:(1)
+si_api_sw_port_set_port_ratelimit port:(0) direct:(0) enable:(0) rate:(1024000 kpbs) ifgMode:(1)
+si_api_sw_port_set_port_ratelimit port:(0) direct:(1) enable:(0) rate:(1024000 kpbs) ifgMode:(1)
+cspd misc entry OSS_NORMAL_STATE 
+cspd_misc_asynmsg EV_NORMAL_START 
+module-gpio: invalid cmdid
+module-gpio: r=-1
+zxic_eoam_monitor_init...
+00:00:13 [OSS_eoam][Warn] [oss_sche.c(827)RunProcess] RunProcess process[eoampre] Event[0x1100] dwUsedTicks[517]
+00:00:14 [OSS_eoam][Warn] [oss_sche.c(827)RunProcess] RunProcess process[eoam] Event[0x1100] dwUsedTicks[546]
+Using /kmodule/GN25L95.ko
+TW1251G-C3AL     found.
+I2C(err): zx_i2c_wait I2C_ERROR_DATA occur 
+I2C(err): zx_i2c_wait I2C_ERROR_DATA occur 
+I2C(err): zx_i2c_wait I2C_ERROR_DATA occur 
+Kmodule GN25L95.ko insmod successfully !
+
+00:00:19 [OSS_cspd][Warn] [oss_sche.c(827)RunProcess] RunProcess process[setmactest_mgr] Event[0x1103] dwUsedTicks[1186]
+00:00:19 [OSS_eoam][Warn] [oss_sche.c(827)RunProcess] RunProcess process[eoampre] Event[0x1103] dwUsedTicks[567]
+fpga write: reg=0x00053010, data=0x00001802
+device eth0 entered promiscuous mode
+br0: port 1(eth0) entered forwarding state
+br0: port 1(eth0) entered forwarding state
+ADDRCONF(NETDEV_CHANGE): br0: link becomes ready
+
+00:00:20 [OSS_cspd][Error] [oss_sche.c(771)RunProcess] From thread[cspd_task] not Find Dest PID  Sender: [00010116], Receiver: [0001012B] Event = 0x9c20 
+00:00:20 [ifs_mgr][Error] [dbl_api.c(305)dbAPIGetView] get view failed VID(21) VN(IGD.WD1.WDCommCfg) Err(-5)
+00:00:20<LOGID000000005>00:00:20 [KIGMPSNP][Error] [br_multicast_se(737)set_trap_unknow] port0 trap_unknow_report_en is 0!
+ [optical_mgr][Er<LOGID000000005>00:00:20 [KIGMPSNP][Error] [br_multicast_se(764)set_multicast_t] portNum = 0, tagstripe = 0
+ror] [pon_optical_mgr(235)opticalProcASyn]  ASynMsg: msg id = 0xe701
+====enter in Route_Up_wan_control=======
+__ratelimit: 6 callbacks suppressed
+====enter in Route_Up_wan_control=======
+[yqs]disable cpu queue rate limit
+
+D301
+Login: 
