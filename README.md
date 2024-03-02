@@ -896,4 +896,4 @@ Now that we know how to tweak this firmware, we can do a lot of things such as i
 By the way, I don't own this device; it was automatically installed by the ISP when I purchased their Internet subscription. If we inject a reverse shell into this device and return it to the ISP, imagine the potential for accessing a lot of information if the ISP further sends it to another customer.
 
 # Links
-The victim device can be purchased from ![here](https://www.sharpvisiononline.in/as111-onu).
+The victim device can be purchased from [here](https://www.sharpvisiononline.in/as111-onu).
