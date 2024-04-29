@@ -550,15 +550,15 @@ I searched for the string that could lead us to the routine which does integrity
 
 ![plot](./photos/gh3.png)
 
-On looking at the code of the function at `0x41f05cec` that references the integrity string, we can see that all it does is comparisons by referencing the memory locations. Perhaps the CRC `0x20dddd5e` is located somewhere down the firmware. We can confirm our guess by searching for the hex string `0x20dddd5e`, which may be stored in network byte order or little-endian order:
+On looking at the code of the function at `0x41f05cec` that references the integrity string, we can see that all it does is comparisons by referencing the memory locations. Perhaps the CRC `0x20dddd5e` is located somewhere down the firmware. We can confirm our guess by searching for the hex string `0x20dddd5e`, which may be stored in network byte order or host byte order:
 ```
-$ binwalk -R "\x5e\xdd\xdd\x20" firmware.bin 									# Network Byte Order
+$ binwalk -R "\x20\xdd\xdd\x5e" firmware.bin 				# Network Byte Order
 
 DECIMAL       HEXADECIMAL     DESCRIPTION
 --------------------------------------------------------------------------------
 
 
-$ binwalk -R "\x5e\xdd\xdd\x20" firmware.bin 									# Little Endian Order
+$ binwalk -R "\x5e\xdd\xdd\x20" firmware.bin 				# Host Byte Order
 
 DECIMAL       HEXADECIMAL     DESCRIPTION
 --------------------------------------------------------------------------------
